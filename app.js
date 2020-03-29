@@ -15,7 +15,7 @@ const expressErrorHandler = require("express-error-handler");
 const expressSession = require("express-session");
 const config = require("./config");
 const database = require("./database/database");
-// const route_loader = require("./routes/route_loader");
+const route_loader = require("./routes/route_loader");
 const app = express();
 
 //===== 뷰 엔진 설정 == pug =====//
@@ -48,7 +48,7 @@ app.use(
 );
 
 //라우팅 정보를 읽어들여 라우팅 설정
-// route_loader.init(app, express.Router());
+route_loader(app, express.Router());
 
 //===== 404 에러 페이지 처리 =====//
 const expressErrorHandlerApply = expressErrorHandler({
