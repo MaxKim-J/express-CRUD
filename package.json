@@ -1,0 +1,35 @@
+{
+  "name": "crud-prac",
+  "version": "1.0.0",
+  "description": "crud with express.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxKim-J/express-CRUD.git"
+  },
+  "author": "max kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxKim-J/express-CRUD/issues"
+  },
+  "homepage": "https://github.com/MaxKim-J/express-CRUD#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.17.0",
+    "http": "0.0.1-security",
+    "mongodb": "^3.5.5",
+    "mongoose": "^5.9.6",
+    "path": "^0.12.7",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
