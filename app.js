@@ -1,3 +1,5 @@
+//! 뷰에서 포스트요청 => 라우터에서 포스트요청 처리 => 디비 메소드 부르기 => 디비조작
+
 // Express 기본 모듈 불러오기
 const express = require("express"),
   http = require("http"),
@@ -11,8 +13,8 @@ const bodyParser = require("body-parser"),
 
 const expressErrorHandler = require("express-error-handler");
 const expressSession = require("express-session");
-// const config = require("./config");
-// const database = require("./database/database");
+const config = require("./config");
+const database = require("./database/database");
 // const route_loader = require("./routes/route_loader");
 const app = express();
 
@@ -86,5 +88,5 @@ const server = http.createServer(app).listen(app.get("port"), function() {
   console.log("서버가 시작되었습니다. 포트 : " + app.get("port"));
 
   // 데이터베이스 초기화
-  //   database.init(app, config);
+  database.init(app, config);
 });
