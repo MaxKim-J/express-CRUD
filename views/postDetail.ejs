@@ -6,10 +6,10 @@
   </head>
   <body>
     <div><%= id %>번 포스트</div>
-    <h1>제목제목</h1>
-    <div>쓰니쓰니</div>
+    <h1><%= results[0].title %></h1>
+    <div><%= results[0].author %></div>
     </br>
-    <div>내용내용내용</div>
+    <div><%= results[0].content %></div>
     <form action="/post/delete" method="post">
       <button type="submit">글 삭제하기</button>
     </form>

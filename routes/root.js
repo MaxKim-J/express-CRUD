@@ -61,7 +61,6 @@ const getPostDetail = (req, res) => {
   if (database.db) {
     database.postModel.getPosts(paramId, function(err, results) {
       if (results.length === 1) {
-        console.dir(results);
         res.writeHead("200", { "Content-Type": "text/html;charset=utf8" });
         const context = { id: paramId, results: results };
         console.log(context);
