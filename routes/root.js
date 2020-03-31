@@ -14,17 +14,27 @@ const postPostUpdate = (req, res) => {
 };
 
 const getPosts = (req, res) => {
-  res.writeHead("200", { "Content-Type": "text/html;charset=utf8" });
-  res.write("<h2>게시글 목록</h2>");
-  res.end();
+  // 디비에서 포스트 리스트를 가져와야함
+  req.app.render("postList", function(err, html) {
+    res.end(html);
+  });
 };
 
 const getPostDetail = (req, res) => {
-  var paramId = req.body.id || req.query.id;
+  // 디비 컬렉션에서 특정 포스트를 가져와야함
+  const paramId = req.params.id;
+  const context = { id: paramId };
+  console.log(req);
+  req.app.render("postDetail", context, function(err, html) {
+    res.end(html);
+  });
+};
 
-  res.writeHead("200", { "Content-Type": "text/html;charset=utf8" });
-  res.write(`<h2>${paramId}번 게시물 디테일이다!</h2>`);
-  res.end();
+const getPostCreate = (req, res) => {
+  // 포스트 요청 보내야함
+  req.app.render("postInput", function(err, html) {
+    res.end(html);
+  });
 };
 
 module.exports.postPostCreate = postPostCreate;
@@ -32,3 +42,4 @@ module.exports.postPostDelete = postPostDelete;
 module.exports.postPostUpdate = postPostUpdate;
 module.exports.getPosts = getPosts;
 module.exports.getPostDetail = getPostDetail;
+module.exports.getPostCreate = getPostCreate;

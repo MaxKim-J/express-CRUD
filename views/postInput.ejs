@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>maxCrud | 글작성</title>
+  </head>
+  <body>
+    <h1>포스트를 작성합니다</h1>
+    <form action="/post/create" method="post">
+      <div>
+        <label for="title">제목</label>
+        <input type="text" name="title" width="200" />
+      </div>
+    </br>
+      <div>
+        <label for="author">쓰니</label>
+        <input type="text" name="author" />
+      </div>
+    </br>
+      <div>
+        <label for="content">내용</label>
+        <textarea type="textarea" name="content"></textarea>
+      </div>
+      <button type="submit">글 작성하기</button>
+    </form>
+  </body>
+</html>

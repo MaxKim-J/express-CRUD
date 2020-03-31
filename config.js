@@ -29,11 +29,18 @@ const config = {
       method: "postPostUpdate",
       type: "post"
     },
-    { file: "./root", path: "/post/list", method: "getPosts", type: "get" },
+    // 뷰를 3개를 만든다
+    { file: "./root", path: "/", method: "getPosts", type: "get" },
     {
       file: "./root",
-      path: "/post/:id",
+      path: "/detail/:id",
       method: "getPostDetail",
+      type: "get"
+    },
+    {
+      file: "./root",
+      path: "/post/create",
+      method: "getPostCreate",
       type: "get"
     }
   ]

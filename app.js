@@ -18,10 +18,10 @@ const database = require("./database/database");
 const route_loader = require("./routes/route_loader");
 const app = express();
 
-//===== 뷰 엔진 설정 == pug =====//
+//===== 뷰 엔진 설정 == ejs =====//
 app.set("views", __dirname + "/views");
-app.set("view engine", "pug");
-console.log("뷰 엔진이 pug로 설정되었습니다.");
+app.set("view engine", "ejs");
+console.log("뷰 엔진이 ejs로 설정되었습니다.");
 
 //===== 서버 변수 설정 및 static으로 public 폴더 설정  =====//
 app.set("port", process.env.PORT || 3000);
@@ -51,14 +51,15 @@ app.use(
 route_loader(app, express.Router());
 
 //===== 404 에러 페이지 처리 =====//
+//* 오류 핸들러 모듈 사용해서 모든 router 처리 끝난 후 404페이지는 오류 처리
 const expressErrorHandlerApply = expressErrorHandler({
   static: {
     "404": "./public/404.html"
   }
 });
-
+//* 이 모듈이 하는 일 : 특정 오류 코드에 따라 클라이언트로 응답을 보내줄 때 미리 만들어놓은 웹문서 보내줌
 app.use(expressErrorHandler.httpError(404));
-app.use(errorHandler);
+app.use(expressErrorHandlerApply);
 
 //===== 서버 시작 =====//
 
