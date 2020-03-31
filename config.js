@@ -13,7 +13,7 @@ const config = {
     //===== User =====//
     {
       file: "./root",
-      path: "/post/create",
+      path: "/create",
       method: "postPostCreate",
       type: "post"
     },
